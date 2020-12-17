@@ -1,0 +1,259 @@
+<html>
+<link rel = "stylesheet" href = "quiz.css">
+  <head>
+     <title>Quiz Program</title>
+     <script>
+      var score = 0;
+      var questionCount = 1;
+
+
+      var MyAnswer;
+      var message = "";
+    // Correct Answers
+      var Answer1 = "mickey";
+      var Answer2 = "donald";
+      var Answer3 = "goofy";
+      var Answer4 = "minnie";
+      var Answer5 = "daisy";
+
+      // Your Answers
+      var urAnswer1 = "";
+      var urAnswer2 = "";
+      var urAnswer3 = "";
+      var urAnswer4 = "";
+      var urAnswer5 = "";
+
+      var uranswer;
+
+     function hide()
+     {
+      //initialize all variables
+      message="";
+      questionCount = 1;
+      score=0;
+       document.getElementById("pic").innerHTML = "<img src = 'mickey.gif' width='200px' height='200px'>";
+       document.getElementById("replay_button").style.display="none";
+       document.getElementById("my_result_table").innerHTML = message;
+       document.getElementById("input_text").style.display=null;
+       document.getElementById("input_text").value="";
+       document.getElementById("submit_answer").style.display=null;
+     }
+
+
+      function gradeQuiz()
+      {
+        if(questionCount == 1)
+        {
+
+          MyAnswer =  document.getElementById("input_text").value;
+          urAnswer1=MyAnswer;
+        //alert(MyAnswer);
+        uranswer = '<br>' + MyAnswer + '<br>';
+            if(MyAnswer == Answer1 )
+            {
+            //alert("1st Answer Correct");
+            score = score + 10;
+            }
+            questionCount = questionCount + 1;
+            document.getElementById("input_text").value = "";
+
+            document.getElementById("pic").innerHTML = "<img src = 'donald.gif' width='200px' height='200px'>";
+
+        }
+        else if(questionCount == 2)
+        {
+          MyAnswer =  document.getElementById("input_text").value;
+          urAnswer2=MyAnswer;
+        //alert(MyAnswer);
+        uranswer = uranswer + MyAnswer + '<br>';
+            if(MyAnswer == Answer2)
+            {
+          //  alert("2nd Answer Correct");
+            score = score + 10;
+            }
+            questionCount = questionCount + 1;
+            document.getElementById("input_text").value = "";
+
+            document.getElementById("pic").innerHTML = "<img src = 'goofy.gif' width='200px' height='200px'>";
+
+        }
+        else if(questionCount == 3)
+        {
+          MyAnswer =  document.getElementById("input_text").value;
+          urAnswer3=MyAnswer;
+        //alert(MyAnswer);
+        uranswer = uranswer + MyAnswer + '<br>';
+            if(MyAnswer == Answer3)
+            {
+          //  alert("3rd Answer Correct");
+            score = score + 10;
+            }
+            questionCount = questionCount + 1;
+            document.getElementById("input_text").value = "";
+
+            document.getElementById("pic").innerHTML = "<img src = 'minnie.png' width='200px' height='200px'>";
+
+        }
+        else if(questionCount == 4)
+        {
+          MyAnswer =  document.getElementById("input_text").value;
+          urAnswer4=MyAnswer;
+        //alert(MyAnswer);
+        uranswer = uranswer + MyAnswer + '<br>';
+            if(MyAnswer == Answer4)
+            {
+          //  alert("4th  Answer Correct");
+            score = score + 10;
+            }
+            questionCount = questionCount + 1;
+            document.getElementById("input_text").value = "";
+
+            document.getElementById("pic").innerHTML = "<img src = 'daisy.png' width='200px' height='200px'>";
+
+        }
+        else if(questionCount == 5)
+        {
+          MyAnswer =  document.getElementById("input_text").value;
+          urAnswer5=MyAnswer;
+        //alert(MyAnswer);
+        uranswer = uranswer + MyAnswer + '<br>';
+            if(MyAnswer == Answer5)
+            {
+          //  alert("5th  Answer Correct");
+            score = score + 10;
+            }
+
+        //All questions are completed so we are displaying the results
+            end();
+        }
+
+       function end()
+       {
+               document.getElementById("pic").innerHTML = "<img src = 'result.jpg' width='200px' height='200px'>";
+
+               document.getElementById("input_text").style.display="none";
+               document.getElementById("submit_answer").style.display="none";
+              document.getElementById("replay_button").style.display=null;
+
+               /*message = "Your Score is " + score + "/50"
+               + "<br> The correct answer to the first question is - " + Answer1
+               + "<br> The correct answer to the second question is - " + Answer2
+               + "<br> The correct answer to the first question is - " + Answer3
+               + "<br> The correct answer to the first question is - " + Answer4
+               + "<br> The correct answer to the first question is - " + Answer5
+               + "<br> Your answers are:" + uranswer;
+               */
+               message = "Your Score is " + score + "/50";
+               message = message +"<table> <tr> <th>Correct Answer</th>  <th>Your Answer</th> </tr>";
+               message = message + "<tr> <td>" + Answer1 + "</td> <td>" + urAnswer1 +"</td> ";
+               message = message + "<tr> <td>" + Answer2 + "</td> <td>" + urAnswer2 +"</td> ";
+               message = message + "<tr> <td>" + Answer3 + "</td> <td>" + urAnswer3 +"</td> ";
+               message = message + "<tr> <td>" + Answer4 + "</td> <td>" + urAnswer4 +"</td> ";
+               message = message + "<tr> <td>" + Answer5 + "</td> <td>" + urAnswer5 +"</td> </table>";
+            document.getElementById("my_result_table").innerHTML = message;
+
+             }
+       }
+     </script>
+  </head>
+  <center>
+
+
+<body>
+  <style>
+  body
+  {
+background-image: url('background.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+  }
+  #output
+  {
+   font-weight: bold;
+   font-family: monospace;
+   font-size: 25px;
+  }
+  h2{
+    font-weight: bolder;
+    color: maroon;
+    font-size: 50px;
+font-family: sans-serif;
+  }
+  h3
+  {
+      color: maroon;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  table, th, td {
+  border: 1px solid black;
+  border-width: thick;
+  }
+  span
+  {
+    font-weight: bold;
+    font-size: 25px;
+  }
+  #submit_answer{
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #999;
+  }
+#submit_answer:hover {background-color: #3e8e41}
+
+#submit_answer:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#replay_button{
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 9px #999;
+}
+#replay_button:hover {background-color: #3e8e41}
+
+#replay_button:active {
+background-color: #3e8e41;
+box-shadow: 0 5px #666;
+transform: translateY(4px);
+}
+
+
+  </style>
+  <!--// Fun Quiz should appear in Geroiza  RED Color-->
+    <h2>Quiz program</h2>
+    <h3>Who is the character in the image below?(type Answer here in lower-case)</h3>
+    <body onload="hide()">
+    <span id="pic" ; width:100px; > </span>
+    <br>
+    <br>
+    <input type = "text" id = "input_text">
+    <input type = "button" id="submit_answer" value = "Submit Answer" onclick = "gradeQuiz()">
+    <input type = "button" id="replay_button" value = "Play Again" onclick = "hide()">
+     <!--Hide or Reveal Stuff???-->
+     <br>
+     <span id="my_result_table"> </span>
+
+  </body>
+</center>
+</html>
